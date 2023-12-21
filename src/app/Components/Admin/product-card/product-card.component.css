@@ -1,0 +1,21 @@
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .btn {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) {
+  .btn {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.not-found-message {
+  background-color: #f8d7da; /* Light red background color */
+  color: #721c24; /* Dark red text color */
+  padding: 10px; /* Add some padding for better appearance */
+  border: 1px solid #f5c6cb; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 10px; /* Add margin for spacing */
+  text-align: center; /* Center the text */
+}

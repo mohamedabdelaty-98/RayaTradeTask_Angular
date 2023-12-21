@@ -1,0 +1,158 @@
+<div class="container mt-4">
+  <h1 class="text-center">Update Product</h1>
+  <form
+    [formGroup]="updateProductForm"
+    (ngSubmit)="updateProduct(updateProductForm)"
+    class="mx-auto w-50"
+  >
+    <div *ngIf="apiError" class="alert alert-danger">{{ apiError }}</div>
+
+    <div class="form-group mb-3">
+      <label for="name">Product Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Iphone X"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateProductForm.get('name')?.hasError('required') &&
+          updateProductForm.get('name')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Name Is Required
+      </div>
+      <div
+        *ngIf="
+          updateProductForm.get('name')?.hasError('pattern') &&
+          updateProductForm.get('name')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Name must not start with a number
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="description">Product Description</label>
+      <input
+        formControlName="description"
+        type="text"
+        name="description"
+        id="description"
+        placeholder="This Phone From Apple Company..."
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateProductForm.get('description')?.hasError('required') &&
+          updateProductForm.get('description')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product description Is Required
+      </div>
+      <div
+        *ngIf="
+          updateProductForm
+            .get('description')
+            ?.hasError('invalidDescriptionPattern') &&
+          updateProductForm.get('description')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Invalid description pattern. It must not start with a number and should
+        contain words.
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="price">Product Price</label>
+      <input
+        formControlName="price"
+        type="number"
+        name="price"
+        id="price"
+        placeholder="12$"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateProductForm.get('price')?.hasError('required') &&
+          updateProductForm.get('price')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Price Is Required
+      </div>
+      <div
+        *ngIf="
+          updateProductForm.get('price')?.hasError('min') &&
+          updateProductForm.get('price')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Price must be a positive number
+      </div>
+      <div
+        *ngIf="
+          updateProductForm.get('price')?.hasError('notZero') &&
+          updateProductForm.get('price')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Price must not be zero
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="quantity">Product Quantity</label>
+      <input
+        formControlName="quantity"
+        type="number"
+        name="quantity"
+        id="quantity"
+        placeholder="560"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateProductForm.get('quantity')?.hasError('required') &&
+          updateProductForm.get('quantity')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Quantity Is Required
+      </div>
+      <div
+        *ngIf="
+          updateProductForm.get('quantity')?.hasError('min') &&
+          updateProductForm.get('quantity')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Quantity must be a positive number
+      </div>
+      <div
+        *ngIf="
+          updateProductForm.get('quantity')?.hasError('notInteger') &&
+          updateProductForm.get('quantity')?.touched
+        "
+        class="alert alert-danger"
+      >
+        *Product Quantity must be an integer
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button [disabled]="updateProductForm.invalid" class="btn btn-primary">
+        <span>Update Product</span>
+        <i class="fas fa-spinner fa-pulse"></i>
+      </button>
+    </div>
+  </form>
+</div>

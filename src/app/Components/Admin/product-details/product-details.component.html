@@ -1,0 +1,16 @@
+<div class="card m-3">
+  <div class="card-header bg-primary text-white">
+    {{ product.name }}
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Description: </strong>{{ product.description }}
+    </p>
+    <h5 class="card-title">
+      <strong>Quantity: </strong>{{ product.quantity }}
+    </h5>
+    <h5 class="card-title">
+      <strong>Price: </strong>{{ product.price | currency }}
+    </h5>
+  </div>
+</div>

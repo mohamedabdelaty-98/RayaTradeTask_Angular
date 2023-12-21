@@ -1,0 +1,10 @@
+<h2 mat-dialog-title class="dialog-title ps-3 pt-3">Confirm Delete</h2>
+<div mat-dialog-content class="dialog-content p-3">
+  <p>Are you sure you want to delete this Product?</p>
+</div>
+<div mat-dialog-actions class="dialog-actions p-2 m-auto">
+  <button mat-button class="no-button m-2" (click)="onNoClick()">No</button>
+  <button mat-button color="warn" class="yes-button m-2" (click)="onYesClick()">
+    Yes
+  </button>
+</div>

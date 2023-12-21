@@ -1,0 +1,13 @@
+<nav class="navbar navbar-light container">
+  <div class="container-fluid">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search by Name Or Price"
+      aria-label="Search"
+      name="search"
+      [(ngModel)]="searchValue"
+      (input)="OnSearchinput()"
+    />
+  </div>
+</nav>

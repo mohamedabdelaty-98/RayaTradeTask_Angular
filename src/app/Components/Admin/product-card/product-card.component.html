@@ -1,0 +1,52 @@
+<div class="container mt-4">
+  <div class="row">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 p-2"
+      *ngFor="let product of Products"
+    >
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="font-weight: bold">
+            {{ product?.name }}
+          </h5>
+          <p class="card-text">Description: {{ product?.description }}</p>
+          <p class="card-text">Price: {{ product?.price | currency }}</p>
+          <div class="row">
+            <div class="col-lg-4 mb-2 col-12">
+              <a
+                href="#"
+                class="btn btn-sm btn-primary w-100"
+                [routerLink]="['/productdetails', product.id]"
+              >
+                Details
+              </a>
+            </div>
+            <div class="col-lg-4 mb-2 col-12">
+              <a
+                href="#"
+                class="btn btn-sm btn-primary w-100"
+                [routerLink]="['/ProductUpdate', product.id]"
+              >
+                Update
+              </a>
+            </div>
+            <div class="col-lg-4 col-12">
+              <button
+                class="btn btn-sm btn-primary w-100"
+                (click)="DeleteProduct(product.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div *ngIf="Products === null" class="not-found-message">
+    Product Not Found!
+  </div>
+</div>
